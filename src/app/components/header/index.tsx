@@ -10,7 +10,7 @@ export default function Header() {
                     <Link href="/produtos" className={Style.link}>
                         Produtos
                     </Link>
-                    <Link href="/sobre" className={Style.link}>
+                    <Link href="/about" className={Style.link}>
                         Quem Somos
                     </Link>
                     <Link href="/galeria" className={Style.link}>
