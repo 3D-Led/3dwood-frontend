@@ -6,11 +6,11 @@ export default function Footer() {
     { label: "Quem Somos", href: "/about" },
     { label: "Galeria", href: "/galeria" },
     { label: "Contato", href: "/contato" },
-    { label: "Produtos", href: "/produtos" },
+    { label: "Produtos", href: "/products" },
   ];
 
   const categorias = [
-    { label: "Todos", href: "/produtos" },
+    { label: "Todos", href: "/products" },
     { label: "Lançamento", href: "/category/lancamentos" },
     { label: "Pendentes", href: "/category/pendentes" },
     { label: "Arandelas", href: "/category/arandelas" },
@@ -55,7 +55,7 @@ export default function Footer() {
           <h2 className="text-[#96886E] text-lg mb-4 underline">
             Siga-nos no Instagram
           </h2>
-          <p className="text-sm">[@3dluzedesign](https://instagram.com/3dluzedesign)</p>
+          <p className="text-sm">[@3dluzedesign_](https://instagram.com/3dluzedesign_)</p>
         </div>
 
         {/* NEWSLETTER E CONTATO (visível em todas as telas) */}

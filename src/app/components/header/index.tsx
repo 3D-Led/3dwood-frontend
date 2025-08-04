@@ -9,14 +9,14 @@ export default function Header() {
   const toggleMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
   const menuLinks = [
-    { label: "Produtos", href: "/produtos" },
+    { label: "Produtos", href: "/products" },
     { label: "Quem Somos", href: "/about" },
     { label: "Galeria", href: "/galeria" },
     { label: "Contato", href: "/contato" },
   ];
 
   const categoryLinks = [
-    { label: "Todos", href: "/produtos" },
+    { label: "Todos", href: "/products" },
     { label: "Lançamentos", href: "/category/lancamentos" },
     { label: "Pendentes", href: "/category/pendentes" },
     { label: "Arandelas", href: "/category/arandelas" },
