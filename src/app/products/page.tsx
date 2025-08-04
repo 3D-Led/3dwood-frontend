@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { ProductService } from '@/services/productService'; 
-import Header from "../../components/header"
-import Footer from "../../components/footer"
+import Header from "@/app/components/header"
+import Footer from "@/app/components/footer"
 import Link from 'next/link';
 
 interface Product {
@@ -12,29 +12,26 @@ interface Product {
     imgUrl: string;
 }
 
-export default function CategoryPage({ params }: { params: { category: string } }) {
+export default function CategoryPage() {
     const [products, setProducts] = useState<Product[]>([]);
     const productService = new ProductService();
 
     useEffect(() => {
-        productService.getProductsCategory(params.category)
+        productService.getAll()
         .then((response) =>{
             setProducts(response.data)
         }).catch((error) => { 
             console.log("Erro ao carregar os item: " + error)
         })
-    }, [params.category]);
-    
-    const capitalizeFirstLetter = (str: string) => {
-        return str.charAt(0).toUpperCase() + str.slice(1);
-      };
+    }, []);
+  
 
     return (
          <>
             <Header />
             <main className="flex flex-col items-center justify-center w-full px-4 py-8">
               <h1 className="text-4xl font-medium text-[#96886E] font-roboto mb-6">
-                {capitalizeFirstLetter(params.category)}
+                Todos Produtos
               </h1>
 
              <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 max-w-7xl w-full">
