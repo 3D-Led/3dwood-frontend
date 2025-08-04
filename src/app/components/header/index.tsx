@@ -11,8 +11,7 @@ export default function Header() {
   const menuLinks = [
     { label: "Produtos", href: "/products" },
     { label: "Quem Somos", href: "/about" },
-    { label: "Galeria", href: "/galeria" },
-    { label: "Contato", href: "/contato" },
+    { label: "Galeria", href: "/gallery" }
   ];
 
   const categoryLinks = [
