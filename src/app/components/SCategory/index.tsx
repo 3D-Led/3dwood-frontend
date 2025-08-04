@@ -11,7 +11,7 @@ export default function Scategory() {
   useEffect(() => {
     categoryService.getAll()
       .then((response) => {
-        console.log("Dados recebidos:", response.data);
+        {/*console.log("Dados recebidos:", response.data);*/ }
         setCategories(Array.isArray(response.data) ? response.data : []);
       })
       .catch((error) => {
@@ -19,12 +19,16 @@ export default function Scategory() {
       });
   }, []);
 
+  const capitalizeFirstLetter = (str: string) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
   return (
     <section className="py-12 bg-white">
       <div className="max-w-6xl mx-auto px-4">
         {/* Título */}
         <div className="mb-10 text-center">
-          <h2 className="text-4xl font-bold text-gray-800">Categorias</h2>
+          <h2 className="text-4xl font-bold text-gray-800 ">Categorias</h2>
         </div>
 
         {/* Grid de Categorias */}
@@ -43,11 +47,11 @@ export default function Scategory() {
                     height="300"
                     decoding="async"
                     loading="lazy"
-                    className="w-full h-60 object-cover rounded-xl mb-3"
+                    className="w-full h-60 object-contain rounded-xl mb-3"
                   />
                 </Link>
                 <figcaption className="text-center text-lg font-semibold text-gray-700">
-                  {category.name}
+                  {capitalizeFirstLetter(category.name)}
                 </figcaption>
               </figure>
             </div>
@@ -56,9 +60,11 @@ export default function Scategory() {
 
         {/* Botão de Todos os Produtos */}
         <div className="mt-10 text-center">
-          <button className="bg-black text-white px-6 py-3 rounded-xl text-base font-medium hover:bg-gray-800 transition">
-            Todos os Produtos
-          </button>
+          <Link href="/products">
+            <button className="bg-black text-white px-6 py-3 rounded-xl text-base font-medium hover:bg-gray-800 transition">
+              Todos os Produtos
+            </button>
+          </Link>
         </div>
       </div>
     </section>

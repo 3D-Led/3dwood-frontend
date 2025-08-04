@@ -26,7 +26,7 @@ export default function CategoryPage() {
     }, []);
   
 
-    return (
+    return ( 
          <>
             <Header />
             <main className="flex flex-col items-center justify-center w-full px-4 py-8">
@@ -36,23 +36,30 @@ export default function CategoryPage() {
 
              <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 max-w-7xl w-full">
               {products.map((product) => (
-              <div
+               <div
                 key={product.id}
                 className="bg-white p-4 rounded-lg shadow-md flex flex-col justify-between text-center"
               >
-                <div className="relative w-full h-64 mb-4">
-                  <Link href={`/products/${product.id}`}>
-                    <img src={product.imgUrl} alt={product.name}/>
-                  </Link>
-                </div>
+                <Link href={`/products/${product.id}`}>
+                  <div className="w-full h-64 mb-6 flex items-center justify-center bg-gray-100 rounded">
+                    <img
+                      src={product.imgUrl}
+                      alt={product.name}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-60 object-contain rounded-xl bg-white"
+                    />
+                  </div>
+                </Link>
                 <div>
                   <h3 className="text-lg font-bold text-gray-800 mb-2">{product.name}</h3>
                   <Link href={`/products/${product.id}`} className="text-blue-600 hover:underline">
                     Ver detalhes
                   </Link>
                 </div>
-            </div>
-          ))}
+              </div>
+
+              ))}
         </div>
             </main>
             <Footer />
