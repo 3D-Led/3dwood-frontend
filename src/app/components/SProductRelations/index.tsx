@@ -20,8 +20,7 @@ export default function ProductRelations({ category }: { category: string }) {
     console.log(category)
     productService.getProductsCategory(category)
         .then((response) => {
-          console.log("Dados recebidos:", response.data);
-          setProducts(Array.isArray(response.data) ? response.data : []);
+          setProducts(Array.isArray(response.data) ? response.data.slice(0,4) : []);
         })
         .catch((error) => {
           console.error("Erro ao carregar categorias:", error);

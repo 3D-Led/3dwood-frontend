@@ -8,6 +8,7 @@ import SProductRelations from "@/app/components/SProductRelations"
 
 interface Product {
   id: number;
+  descriptions: string;
   name: string;
   sku: number;
   ean: number;
@@ -33,6 +34,10 @@ export default function ProductPage({ params }: { params: { id: number } }) {
         console.log("Erro ao carregar os item de lançamento: " + error)
       })
   }, [params.id]);
+   function formatStringWithLineBreaksHTML(input?: string): string {
+    if (!input) return "";
+    return input.split(";").map(part => part.trim()).join("<br />");
+  }
 
   return (
     <>
@@ -84,10 +89,20 @@ export default function ProductPage({ params }: { params: { id: number } }) {
 
           {/* Informações do produto */}
           <div className="flex flex-col gap-4 w-full lg:w-1/2">
+           {/* SKU */}
+            <div>
+              <h2 className="text-xl font-semibold mb-2 text-gray-800">Código</h2>
+              <p className="text-gray-600">{product?.sku || "Codigo indisponível"}</p>
+            </div>
             {/* Descrição */}
             <div>
               <h2 className="text-xl font-semibold mb-2 text-gray-800">Descrição</h2>
-              <p className="text-gray-600">Informações adicionais sobre o produto.</p>
+              <p
+                className="text-gray-600"
+                dangerouslySetInnerHTML={{
+                  __html: formatStringWithLineBreaksHTML(product?.descriptions) || "Descrição não disponível.",
+                }}>
+               </p>
             </div>
 
             {/* EAN */}
@@ -99,7 +114,12 @@ export default function ProductPage({ params }: { params: { id: number } }) {
             {/* Tamanho */}
             <div>
               <h2 className="text-xl font-semibold mb-2 text-gray-800">Tamanho</h2>
-              <p className="text-red-900">{product?.size || "Tamanho não disponível."}</p>
+              <p
+                className="text-gray-600"
+                dangerouslySetInnerHTML={{
+                  __html: formatStringWithLineBreaksHTML(product?.size) || "Tamanho não disponível.",
+                }}>
+               </p>
             </div>
           </div>
         </div>

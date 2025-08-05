@@ -19,7 +19,6 @@ export default function Launch() {
   useEffect(() => {
     productService.getProductsCategory("lancamentos")
         .then((response) => {
-          console.log("Dados recebidos:", response.data);
           setProducts(Array.isArray(response.data) ? response.data.slice(0,8) : []);
         })
         .catch((error) => {
