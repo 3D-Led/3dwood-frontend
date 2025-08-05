@@ -28,7 +28,7 @@ export default function Scategory() {
       <div className="max-w-6xl mx-auto px-4">
         {/* Título */}
         <div className="mb-10 text-center">
-          <h2 className="text-4xl font-bold text-gray-800 ">Categorias</h2>
+          <h2 className="text-4xl font-medium text-[#96886E] font-roboto mb-6 ">Categorias</h2>
         </div>
 
         {/* Grid de Categorias */}

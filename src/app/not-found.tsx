@@ -1,6 +1,6 @@
 import Header from "@/app/components/header"
 import Footer from "@/app/components/footer"
-import SProductRelations from "@/app/components/SProductRelations"
+import SLaunch from "@/app/components/SLaunch"
 
 export default function NotFound() {
 return (
@@ -10,7 +10,7 @@ return (
       <h1 className="text-4xl font-bold">Página não encontrada</h1>
       <p className="mt-2 text-lg">Desculpe, não conseguimos encontrar o que você procura.</p>
     </div>
-    <SProductRelations category="lancamentos"/>
+    <SLaunch/>
     <Footer/>
     </>
   );

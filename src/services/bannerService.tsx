@@ -6,7 +6,7 @@ export const axiosInstace = axios.create({
 })
 export class BannerService{
 
-    async getAll(){
-        return axiosInstace.get("/banner")
+    async getAllBanners(type : string){
+        return axiosInstace.get(`/banner/${type}`)
     }
 }

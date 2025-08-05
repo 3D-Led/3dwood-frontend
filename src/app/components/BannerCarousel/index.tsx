@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { BannerService } from "@/services/bannerService";
 
 interface Banner {
-  imgUrl: string;
+  imgUrl: string; 
 }
 
 export default function BannerCarousel() {
@@ -13,9 +13,8 @@ export default function BannerCarousel() {
   const bannerService = new BannerService();
 
   useEffect(() => {
-    bannerService.getAll()
+    bannerService.getAllBanners("CARROUSEL")
       .then((response) => {
-        console.log(response.data); 
         setBanners(response.data);
       })
       .catch((error) => {
